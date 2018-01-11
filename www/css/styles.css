@@ -1,0 +1,101 @@
+/*
+   statusbar-overlay sets the background color for the overlay. Black text is the default when the statusbar plugin is not added. When the
+   statusbar plugin is added, it also adds default setting to make the content white via:
+
+       <preference name="StatusBarStyle" value="lightcontent"/>
+
+   Setting the background color to black will allow the default light content (white text/icons) to show on it. The statusbar plugin is included
+   in the config.xml file and will be added by the CLI when you build locally.
+
+   See https://github.com/apache/cordova-plugin-statusbar
+*/
+.statusbar-overlay {
+  background: #000000;
+}
+
+body {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#logo {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.center {
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -150px;
+  margin-top: -150px;
+}
+
+#menu-closed {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+}
+
+#menu-icons {
+  /*display: none;*/
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+#prompt-folders {
+  position: fixed;
+  bottom: 13%;
+  left: 5%;
+}
+
+.prompt-buttons {
+  display: none;
+}
+
+#color-options {
+  display: none;
+  position: fixed;
+  bottom: 13%;
+  left: 34%;
+}
+
+.color-buttons {
+  height: 19% !important;
+}
+
+img.color-buttons {
+  height: 62px !important;
+}
+
+img.prompt-buttons {
+  height: 62px !important;
+}
+
+.menu-buttons {
+  height: 62px !important;
+}
+
+#draw-logo {
+  width: 125%;
+  top: -30px;
+  left: -42px;
+  position: relative;
+  z-index: -1;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+#click-area {
+  overflow: hidden;
+  clear: both;
+  background-image: url("../img/draw.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
