@@ -13,6 +13,7 @@ var mainView = myApp.addView('.view-main', {
 // Handle Cordova Device Ready Event
 $$(document).on('deviceready', function() {
   console.log("Device is ready!");
+  $$('body').css('background-image', localStorage.getItem("background"));
   var db = window.sqlitePlugin.openDatabase({name: 'prompts.db', location: 'default', androidDatabaseImplementation: 2});
 });
 
@@ -65,6 +66,7 @@ $$('#background-color').on('click', function() {
 
 $$('.color-buttons').on('click', function() {
   var backgroundColor = "../www/img/" + $$(this).attr('id') + ".png";
+  localStorage.setItem('background', 'url(' + backgroundColor + ')');
   $$('body').css('background-image', 'url(' + backgroundColor + ')');
   $$('#color-options').hide();
 });

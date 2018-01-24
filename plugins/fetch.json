@@ -22,13 +22,5 @@
     },
     "is_top_level": true,
     "variables": {}
-  },
-  "cordova-sqlite-evcore-extbuild-free": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-sqlite-evcore-extbuild-free@^0.9.1"
-    },
-    "is_top_level": true,
-    "variables": {}
   }
 }
