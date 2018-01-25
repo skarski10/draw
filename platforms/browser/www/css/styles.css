@@ -50,20 +50,21 @@ body {
 }
 
 #prompt-folders {
+  display: none;
   position: fixed;
   bottom: 13%;
-  left: 5%;
+  left: 7%;
 }
 
-.prompt-buttons {
+/*.prompt-buttons {
   display: none;
-}
+}*/
 
 #color-options {
   display: none;
   position: fixed;
   bottom: 13%;
-  left: 34%;
+  left: 33%;
 }
 
 .color-buttons {
@@ -94,8 +95,32 @@ img.prompt-buttons {
 
 #click-area {
   overflow: hidden;
+  width: 100%;
+  height: 85%;
   clear: both;
-  background-image: url("../img/draw.png");
-  background-size: cover;
+}
+
+#info-div {
+  display: none;
+  background-position: center;
   background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  text-align: center;
+  width: 100%;
+  height: 100%
+}
+
+#info {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#info-draw-logo {
+  width: 20%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
