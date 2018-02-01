@@ -1,86 +1,22 @@
-/*
-   statusbar-overlay sets the background color for the overlay. Black text is the default when the statusbar plugin is not added. When the
-   statusbar plugin is added, it also adds default setting to make the content white via:
-
-       <preference name="StatusBarStyle" value="lightcontent"/>
-
-   Setting the background color to black will allow the default light content (white text/icons) to show on it. The statusbar plugin is included
-   in the config.xml file and will be added by the CLI when you build locally.
-
-   See https://github.com/apache/cordova-plugin-statusbar
-*/
-.statusbar-overlay {
-  background: #000000;
-}
-
 body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-#logo {
+/* main click area */
+#click-area {
+  overflow: hidden;
+  width: 100%;
+  height: 85%;
+  clear: both;
+}
+
+#logo-div {
   position: fixed;
-  top: 50%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
-
-.center {
-  width: 300px;
-  height: 300px;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  margin-left: -150px;
-  margin-top: -150px;
-}
-
-#menu-closed {
-  position: fixed;
-  bottom: 0;
-  left: 50%;
-}
-
-#menu-icons {
-  /*display: none;*/
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-}
-
-#prompt-folders {
-  display: none;
-  position: fixed;
-  bottom: 13%;
-  left: 7%;
-}
-
-/*.prompt-buttons {
-  display: none;
-}*/
-
-#color-options {
-  display: none;
-  position: fixed;
-  bottom: 13%;
-  left: 33%;
-}
-
-.color-buttons {
-  height: 19% !important;
-}
-
-img.color-buttons {
-  height: 62px !important;
-}
-
-img.prompt-buttons {
-  height: 62px !important;
-}
-
-.menu-buttons {
-  height: 62px !important;
 }
 
 #draw-logo {
@@ -93,22 +29,38 @@ img.prompt-buttons {
   margin-right: auto !important;
 }
 
-#click-area {
-  overflow: hidden;
-  width: 100%;
-  height: 85%;
-  clear: both;
+#keyword {
+  position: fixed;
+  top: 65%;
+  left: 48%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+  font-weight: bold;
+  width: 500px;
 }
 
+/* doesn't exisit?
+.center {
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -150px;
+  margin-top: -150px;
+}*/
+
+  /* info div */
 #info-div {
   display: none;
+  background-color: white;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
   text-align: center;
-  width: 100%;
-  height: 100%
+  width: 100vw;
+  height: 100vh;
 }
 
 #info {
@@ -119,8 +71,72 @@ img.prompt-buttons {
 }
 
 #info-draw-logo {
-  width: 20%;
+  width: 75%;
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
+
+#info-text {
+  font-size: 18px;
+}
+
+#copyright {
+  font-size: 10px;
+}
+  /* info div */
+
+/* main click area */
+
+
+/* bottom menu bar */
+#menu-icons {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.menu-buttons {
+  height: 62px !important;
+}
+
+  /* prompt icons/options */
+#prompt-folders {
+  display: none;
+  position: fixed;
+  bottom: 10%;
+  left: 21%;
+}
+
+.category-icons {
+  width: 425px;
+}
+
+.prompt-label {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+img.prompt-buttons {
+  height: 62px !important;
+}
+  /* prompt icons/options */
+
+  /* color buttons/options */
+#color-options {
+  display: none;
+  position: fixed;
+  bottom: 10%;
+  left: 33%;
+}
+
+.color-buttons {
+  height: 19% !important;
+}
+
+img.color-buttons {
+  height: 62px !important;
+}
+  /* color buttons/options */
+
+/* bottom menu bar */

@@ -30,18 +30,6 @@
   </head>
 
   <body>
-      <!-- Status bar overlay for full screen mode (PhoneGap) -->
-      <div class="statusbar-overlay"></div>
-
-      <!-- Panels overlay-->
-      <div class="panel-overlay"></div>
-      <!-- Left panel with reveal effect-->
-      <div class="panel panel-left panel-reveal">
-          <div class="content-block">
-
-          </div>
-      </div>
-
       <!-- Views -->
       <div class="views">
           <!-- Your main view, should have "view-main" class -->
@@ -49,45 +37,50 @@
 
               <div class="container-fluid" id="click-area">
                 <div class="row">
-                  <div class="" id="logo">
+                  <div class="" id="logo-div">
                     <img src="img/draw.png" alt="draw! logo" id="draw-logo">
                   </div>
                   <!-- current prompt -->
-                  <div id="prompt">
+                  <div id="keyword">
 
                   </div>
                 </div>
                 <div id="info-div">
                   <div id="info">
                     <img src="img/draw.png" alt="draw! Logo" id='info-draw-logo'>
-                    Thanks for using draw! If you have any suggestions or would like to submit your own ideas visit www.drawsomethingapp.coms
+                    <br>
+                    <span id="info-text">Thanks for using draw! If you have any suggestions or would like to submit your own ideas visit www.drawsomethingapp.com</span>
                     <br>
                     <br>
-                    <span>Copyright 2016 SEMIC Group</span>
+                    <span id="copyright">Copyright 2016 SEMIC Group</span>
                   </div>
                 </div>
               </div>
 
               <!-- bottom menu bar -->
               <div class="container-fluid">
-                <!--  -->
-                <!-- <div class="menu-button row">
-                  <img src="img/" alt="">
-                </div> -->
                 <div class="row">
                   <!-- prompt category folders -->
                   <div class="col-xs-4" id="prompt-folders">
-                    <div class="row">
-                      <img src="img/all-folder.png" alt="all catagories button" class="prompt-buttons" id="all-categories">
+                    <div class="row pull-left">
+                      <div class="category-icons">
+                        <img src="img/all-folder.png" alt="all catagories button" class="prompt-buttons" id="all-categories"><span class="prompt-label">All</span>
+                      </div>
                     </div>
-                    <div class="row">
-                      <img src="img/rep-folder.png" alt="representative button" class="prompt-buttons" id="rep-categories">
+                    <div class="row pull-left">
+                      <div class="category-icons">
+                        <img src="img/rep-folder.png" alt="representative button" class="prompt-buttons" id="rep-categories"><span class="prompt-label">Representative</span>
+                      </div>
                     </div>
-                    <div class="row">
-                      <img src="img/non-rep-folder.png" alt="non representative button" class="prompt-buttons" id="non-rep-categories">
+                    <div class="row pull-left">
+                      <div class="category-icons">
+                        <img src="img/non-rep-folder.png" alt="non representative button" class="prompt-buttons" id="non-rep-categories"><span class="prompt-label">Non-Representative</span>
+                      </div>
                     </div>
-                    <div class="row">
-                      <img src="img/imaginative-folder.png" alt="imaginative logo" class="prompt-buttons" id="imaginative-categories">
+                    <div class="row pull-left">
+                      <div class="category-icons">
+                        <img src="img/imaginative-folder.png" alt="imaginative logo" class="prompt-buttons" id="imaginative-categories"><span class="prompt-label">Imaginative</span>
+                      </div>
                     </div>
                   </div>
                   <!-- background color buttons -->
@@ -112,6 +105,7 @@
                     </div>
                   </div>
                 </div>
+              <!-- three menu icons at the bottom -->
               <div class="row" id="menu-icons">
                 <img src="img/category-folder.png" alt="category icon" class="menu-buttons" id="prompt-category">
                 <img src="img/button-color.png" alt="color icon" class="menu-buttons" id="background-color">
