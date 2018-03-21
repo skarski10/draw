@@ -42,7 +42,9 @@ $$(document).on('deviceready', function() {
     androidLockWorkaround: 1
   }, successcb, errorcb)
 
-  insertKeywords();
+  insertKeywords(imaginative ,imaginativeKeywords);
+  insertKeywords(nonRepresentational, nonRepresentationalKeywords);
+  insertKeywords(representational, representationalKeywords);
 
   // db.sqlBatch([
   //   'DROP TABLE IF EXISTS imaginative',
@@ -84,15 +86,15 @@ function getKeyword () {
   })
 }
 
-function insertKeywords () {
+function insertKeywords (table, keywordArray) {
   var i;
 
-	for (i = 0; i < imaginativeKeywords.length; i++) {
+	for (i = 0; i < keywordArray.length; i++) {
 		db.sqlBatch(
 			[
-        'DROP TABLE IF EXISTS imaginative',
-				'CREATE TABLE IF NOT EXISTS imaginative (keywords)',
-				[ 'INSERT INTO imaginative VALUES (?)', [ imaginativeKeywords[i] ] ] ]
+        'DROP TABLE IF EXISTS ' + table,
+				'CREATE TABLE IF NOT EXISTS ' + table + '(keywords)',
+				[ 'INSERT INTO ' + table + ' VALUES (?)', [ keywordArray[i] ] ] ]
 			// function() {
 			// 	db.executeSql('SELECT * FROM imaginative', [], function ( result ) {
 			// 		// alert( 'got keyword: ' + JSON.stringify( result, null, 4 ) );
