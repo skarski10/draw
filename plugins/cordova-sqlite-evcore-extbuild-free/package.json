@@ -1,0 +1,66 @@
+{
+  "_from": "cordova-sqlite-evcore-extbuild-free",
+  "_id": "cordova-sqlite-evcore-extbuild-free@0.9.3",
+  "_inBundle": false,
+  "_integrity": "sha512-HHBD0UFVUEBpwfpaAbbK6cNHZYfTuikllKUPMLwbcm3Oo/qKb+mA6aRKaek4A3kriC0xmaKBcSDeMPzMkOMYjA==",
+  "_location": "/cordova-sqlite-evcore-extbuild-free",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "cordova-sqlite-evcore-extbuild-free",
+    "name": "cordova-sqlite-evcore-extbuild-free",
+    "escapedName": "cordova-sqlite-evcore-extbuild-free",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-sqlite-evcore-extbuild-free/-/cordova-sqlite-evcore-extbuild-free-0.9.3.tgz",
+  "_shasum": "2d4e10fff4ed26f7bfa17354c906df9535d60065",
+  "_spec": "cordova-sqlite-evcore-extbuild-free",
+  "_where": "/Users/Skarski/Desktop/draw",
+  "author": {
+    "name": "various"
+  },
+  "bugs": {
+    "url": "https://github.com/litehelpers/Cordova-sqlite-evcore-extbuild-free/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "cordova-sqlite-evcore-extbuild-free",
+    "platforms": [
+      "android",
+      "ios",
+      "osx",
+      "windows"
+    ]
+  },
+  "deprecated": false,
+  "description": "Cordova/PhoneGap sqlite storage - free enterprise version with Android performance/memory improvements and extra features for PhoneGap Build",
+  "devDependencies": {
+    "shelljs": "^0.7.4"
+  },
+  "homepage": "https://github.com/litehelpers/Cordova-sqlite-evcore-extbuild-free",
+  "keywords": [
+    "sqlite",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios",
+    "cordova-osx",
+    "cordova-windows"
+  ],
+  "license": "GPL",
+  "name": "cordova-sqlite-evcore-extbuild-free",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/litehelpers/Cordova-sqlite-evcore-extbuild-free.git"
+  },
+  "scripts": {
+    "start": "node scripts/prepareSpec.js"
+  },
+  "version": "0.9.3"
+}

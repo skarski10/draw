@@ -4,8 +4,8 @@
   "name": "draw!",
   "short_name": "draw!",
   "version": "com.phonegap.helloworld",
-  "description": "A basic Framework7 template for PhoneGap.",
-  "author": "Apache Cordova Team",
+  "description": "A drawing prompt app.",
+  "author": "Semic Group",
   "icons": [],
   "start_url": "index.html"
 }

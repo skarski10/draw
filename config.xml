@@ -2,10 +2,10 @@
 <widget id="com.phonegap.helloworld" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>draw!</name>
     <description>
-        A basic Framework7 template for PhoneGap.
+        A drawing prompt app.
     </description>
     <author email="dev@cordova.apache.org" href="http://cordova.io">
-        Apache Cordova Team
+        Semic Group
     </author>
     <content src="index.html" />
     <access origin="*" />
@@ -30,4 +30,6 @@
     <engine name="browser" spec="^5.0.3" />
     <plugin name="cordova-plugin-whitelist" spec="~1.2.0" />
     <plugin name="cordova-plugin-console" spec="~1.0.1" />
+    <plugin name="cordova-sqlite-evcore-extbuild-free" spec="^0.9.3" />
+    <plugin name="cordova-plugin-splashscreen" spec="^5.0.2" />
 </widget>
