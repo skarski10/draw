@@ -15,6 +15,14 @@ module.exports = [
     "clobbers": [
       "navigator.splashscreen"
     ]
+  },
+  {
+    "id": "cordova-plugin-dbcopy.sqlDB",
+    "file": "plugins/cordova-plugin-dbcopy/www/sqlDB.js",
+    "pluginId": "cordova-plugin-dbcopy",
+    "clobbers": [
+      "window.plugins.sqlDB"
+    ]
   }
 ];
 module.exports.metadata = 
@@ -23,7 +31,8 @@ module.exports.metadata =
   "cordova-plugin-console": "1.0.7",
   "cordova-plugin-whitelist": "1.2.2",
   "cordova-sqlite-evcore-extbuild-free": "0.9.3",
-  "cordova-plugin-splashscreen": "5.0.2"
+  "cordova-plugin-splashscreen": "5.0.2",
+  "cordova-plugin-dbcopy": "2.0.0"
 };
 // BOTTOM OF METADATA
 });

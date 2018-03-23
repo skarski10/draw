@@ -19,6 +19,20 @@
             {
               "xml": "<feature name=\"SplashScreen\"><param name=\"android-package\" value=\"org.apache.cordova.splashscreen.SplashScreen\" /><param name=\"onload\" value=\"true\" /></feature>",
               "count": 1
+            },
+            {
+              "xml": "<feature name=\"sqlDB\"><param name=\"android-package\" value=\"me.rahul.plugins.sqlDB.sqlDB\" /></feature>",
+              "count": 1
+            }
+          ]
+        }
+      },
+      "AndroidManifest.xml": {
+        "parents": {
+          "/manifest": [
+            {
+              "xml": "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\" />",
+              "count": 1
             }
           ]
         }
@@ -36,6 +50,9 @@
       "PACKAGE_NAME": "com.phonegap.helloworld"
     },
     "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "com.phonegap.helloworld"
+    },
+    "cordova-plugin-dbcopy": {
       "PACKAGE_NAME": "com.phonegap.helloworld"
     }
   },
@@ -56,12 +73,21 @@
       "clobbers": [
         "navigator.splashscreen"
       ]
+    },
+    {
+      "id": "cordova-plugin-dbcopy.sqlDB",
+      "file": "plugins/cordova-plugin-dbcopy/www/sqlDB.js",
+      "pluginId": "cordova-plugin-dbcopy",
+      "clobbers": [
+        "window.plugins.sqlDB"
+      ]
     }
   ],
   "plugin_metadata": {
     "cordova-plugin-console": "1.0.7",
     "cordova-plugin-whitelist": "1.2.2",
     "cordova-sqlite-evcore-extbuild-free": "0.9.3",
-    "cordova-plugin-splashscreen": "5.0.2"
+    "cordova-plugin-splashscreen": "5.0.2",
+    "cordova-plugin-dbcopy": "2.0.0"
   }
 }

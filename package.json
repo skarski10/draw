@@ -7,6 +7,7 @@
     "cordova-android": "^7.0.0",
     "cordova-browser": "^5.0.3",
     "cordova-plugin-console": "~1.0.1",
+    "cordova-plugin-dbcopy": "git+https://github.com/an-rahulpandey/cordova-plugin-dbcopy.git",
     "cordova-plugin-splashscreen": "^5.0.2",
     "cordova-plugin-whitelist": "~1.2.0",
     "cordova-sqlite-evcore-extbuild-free": "^0.9.3"
@@ -26,7 +27,8 @@
       "cordova-plugin-whitelist": {},
       "cordova-plugin-console": {},
       "cordova-sqlite-evcore-extbuild-free": {},
-      "cordova-plugin-splashscreen": {}
+      "cordova-plugin-splashscreen": {},
+      "cordova-plugin-dbcopy": {}
     }
   }
 }

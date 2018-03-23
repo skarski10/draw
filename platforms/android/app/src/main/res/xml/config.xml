@@ -11,6 +11,9 @@
         <param name="android-package" value="org.apache.cordova.splashscreen.SplashScreen" />
         <param name="onload" value="true" />
     </feature>
+    <feature name="sqlDB">
+        <param name="android-package" value="me.rahul.plugins.sqlDB.sqlDB" />
+    </feature>
     <name>draw!</name>
     <description>
         A drawing prompt app.
