@@ -4,17 +4,15 @@ var myApp = new Framework7();
 // If we need to use custom DOM library, let's save it to $$ variable:
 var $$ = Dom7;
 
-$.support.cors = true;
-
 // variables for server url
-var url = 'http://staging.redleafhq.com/';
-var file = 'semicdraw.php';
-// var nonRepresentational = '?s=non-representational';
+// var url = 'http://staging.redleafhq.com/';
+// var file = 'semicdraw.php';
+// var nonRepresentational = '?s=non_representational';
 // var representational = '?s=representational';
 // var imaginative = '?s=imaginative';
 // var random = '?s=rando';
 var db = null;
-var nonRepresentational = 'non-representational';
+var nonRepresentational = 'non_representational';
 var representational = 'representational';
 var imaginative = 'imaginative';
 
@@ -22,32 +20,23 @@ var imaginative = 'imaginative';
 // Handle Cordova Device Ready Event
 $$(document).on('deviceready', function() {
   // alert('Device is ready!');
-  window.plugins.sqlDB.copy("semic-draw.db", 0, copysuccess, copyerror);
+  window.plugins.sqlDB.copy('semic_draw.db', 0, copysuccess, copyerror);
 
-  if (db = window.sqlitePlugin.openDatabase({
-    name: 'semic-draw.db',
+  db = window.sqlitePlugin.openDatabase({
+    name: 'semic_draw.db',
     location: 'default',
     androidDatabaseImplementation: 2,
     androidLockWorkaround: 1
-  }, successcb, errorcb)) {
-    alert('DB Opened');
-  } else {
-    alert(':( DB NOT opened');
-  }
-
-  // insertKeywords(imaginativeKeywords);
-  // insertKeywords(nonRepresentationalKeywords);
-  // insertKeywords(representationalKeywords);
+  }, successcb, errorcb)
 
   // db.sqlBatch([
   //   'DROP TABLE IF EXISTS imaginative',
   //   'CREATE TABLE IF NOT EXISTS imaginative (keywords)',
-  //   // 'CREATE TABLE IF NOT EXISTS non-representational (keywords)',
-  //   // 'CREATE TABLE IF NOT EXISTS representational (keywords)',
-  //   //  [ insertKeywords(imaginative, imaginativeKeywords) ],
-  //   // [ 'INSERT INTO imaginative VALUES (?)', [ 'blah' ] ],
-  //   // [ 'INSERT INTO non-representational VALUES (?)', [  ] ],
-  //   // [ 'INSERT INTO representational VALUES (?)', [  ] ],
+  //   'CREATE TABLE IF NOT EXISTS non_representational (keywords)',
+  //   'CREATE TABLE IF NOT EXISTS representational (keywords)',
+  //   [ 'INSERT INTO imaginative VALUES (?)', [ 'blah' ] ],
+  //   [ 'INSERT INTO non_representational VALUES (?)', [  ] ],
+  //   [ 'INSERT INTO representational VALUES (?)', [  ] ],
   // ],
   // function() {
   //   alert("INSERTED");
@@ -72,13 +61,35 @@ $$(document).on('deviceready', function() {
 
 
 
-function getKeyword () {
-  db.executeSql('SELECT keyword FROM representational ORDER BY RANDOM() LIMIT 1', [], function (result) {
-    alert('got keyword: ' + JSON.stringify(result.rows.item(0).keywords));
-    document.getElementById('keyword').innerHTML = result.rows.item(0).keywords;
-  }, function(error) {
-    alert('SELECT error: ' + error.message);
-  })
+function getKeyword (table) {
+  if (table == "imaginative") {
+    db.executeSql('SELECT keyword FROM imaginative ORDER BY RANDOM() LIMIT 1', [], function (result) {
+      // alert('got keyword: ' + JSON.stringify(result.rows.item(0).keyword));
+      document.getElementById('keyword').innerHTML = result.rows.item(0).keyword;
+      localStorage.setItem('current-keyword', result.rows.item(0).keyword);
+    }, function(error) {
+      alert('SELECT error: ' + error.message);
+    })
+  }
+  if (table == "non_representational") {
+    alert(table);
+    db.executeSql('SELECT keyword FROM non_representational ORDER BY RANDOM() LIMIT 1', [], function (result) {
+      // alert('got keyword: ' + JSON.stringify(result.rows.item(0).keyword));
+      document.getElementById('keyword').innerHTML = result.rows.item(0).keyword;
+      localStorage.setItem('current-keyword', result.rows.item(0).keyword);
+    }, function(error) {
+      alert('SELECT error: ' + error.message);
+    })
+  }
+  if (table == "representational") {
+    db.executeSql('SELECT keyword FROM representational ORDER BY RANDOM() LIMIT 1', [], function (result) {
+      // alert('got keyword: ' + JSON.stringify(result.rows.item(0).keyword));
+      document.getElementById('keyword').innerHTML = result.rows.item(0).keyword;
+      localStorage.setItem('current-keyword', result.rows.item(0).keyword);
+    }, function(error) {
+      alert('SELECT error: ' + error.message);
+    })
+  }
 }
 
 // function insertKeywords (keywordArray) {
@@ -90,20 +101,20 @@ function getKeyword () {
 //         'DROP TABLE IF EXISTS imaginative',
 // 				'CREATE TABLE IF NOT EXISTS imaginative(keywords)',
 // 				[ 'INSERT INTO imaginative VALUES (?)', [ keywordArray[i] ] ] ]
-// 			// function() {
-// 			// 	db.executeSql('SELECT * FROM imaginative', [], function ( result ) {
-// 			// 		// alert( 'got keyword: ' + JSON.stringify( result, null, 4 ) );
-// 			// 		// alert( 'Sample column value: ' + i + result.rows.item(i).keywords );
-// 			// 	});
-// 			// },
-// 			// function(error) {
-// 			// 	alert( 'Populate table error: ' + error.message );
-// 			// }
+// 			function() {
+// 				db.executeSql('SELECT * FROM imaginative', [], function ( result ) {
+// 					// alert( 'got keyword: ' + JSON.stringify( result, null, 4 ) );
+// 					// alert( 'Sample column value: ' + i + result.rows.item(i).keywords );
+// 				});
+// 			},
+// 			function(error) {
+// 				alert( 'Populate table error: ' + error.message );
+// 			}
 // 		);
 // 	}
 // }
-
-// function to get prompt from server
+//
+// // function to get prompt from server
 // function getKeyword() {
 //   var request = new XMLHttpRequest();
 //   var serverUrl = url + file + table;
@@ -129,20 +140,20 @@ $$('#prompt-category').on('click', function() {
 // click on specific prompt category folder
 $$('.prompt-buttons').on('click', function() {
   var imageUpdate = $$(this).attr('src');
-  if($$(this).attr('id') == 'all-categories') {
-    getKeyword();
-    localStorage.setItem('current-category', 'all');
-  }
+  // if($$(this).attr('id') == 'all-categories') {
+  //   getKeyword();
+  //   localStorage.setItem('current-category', 'all');
+  // }
   if($$(this).attr('id') == 'non-rep-categories') {
-    getKeyword();
-    localStorage.setItem('current-category', 'non-representational');
+    getKeyword(nonRepresentational);
+    localStorage.setItem('current-category', 'non_representational');
   }
   if($$(this).attr('id') == 'imaginative-categories') {
-    getKeyword();
+    getKeyword(imaginative);
     localStorage.setItem('current-category', 'imaginative');
   }
   if($$(this).attr('id') == 'rep-categories') {
-    getKeyword();
+    getKeyword(representational);
     localStorage.setItem('current-category', 'representational');
   }
   localStorage.setItem('category-image', imageUpdate);
@@ -171,14 +182,14 @@ $$('#click-area').on('click', function() {
     if(localStorage.getItem('current-category') == 'all') {
       getKeyword();
     }
-    if(localStorage.getItem('current-category') == 'non-representational') {
-      getKeyword();
+    if(localStorage.getItem('current-category') == 'non_representational') {
+      getKeyword(nonRepresentational);
     }
     if(localStorage.getItem('current-category') == 'representational') {
-      getKeyword();
+      getKeyword(representational);
     }
     if(localStorage.getItem('current-category') == 'imaginative') {
-      getKeyword();
+      getKeyword(imaginative);
     }
   }
   $$('#color-options').hide();
@@ -201,10 +212,10 @@ function successcb() {
 
 function copysuccess()
 {
-  console.log("DB Copy Success");
+  db = window.sqlitePlugin.openDatabase({name: "semic_draw.db"});
 }
 
 function copyerror(e)
 {
-  console.log("Error Code = "+JSON.stringify(e));
+  alert("Error Code = "+JSON.stringify(e));
 }

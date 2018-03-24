@@ -19,6 +19,7 @@
     <platform name="android">
         <preference name="android-minSdkVersion" value="14" />
         <allow-intent href="market:*" />
+        <splash density="land-hdpi" src="res/screen/android/splash-land-hdpi.png" />
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />
@@ -32,5 +33,5 @@
     <plugin name="cordova-plugin-console" spec="~1.0.1" />
     <plugin name="cordova-sqlite-evcore-extbuild-free" spec="^0.9.3" />
     <plugin name="cordova-plugin-splashscreen" spec="^5.0.2" />
-    <plugin name="cordova-plugin-dbcopy" spec="https://github.com/an-rahulpandey/cordova-plugin-dbcopy.git" />
+    <plugin name="cordova-plugin-dbcopy" spec="git+https://github.com/an-rahulpandey/cordova-plugin-dbcopy.git" />
 </widget>

@@ -22,7 +22,7 @@ body {
 #draw-logo {
   width: 125%;
   top: -30px;
-  left: -42px;
+  left: -35px;
   position: relative;
   z-index: -1;
   margin-left: auto !important;
@@ -31,12 +31,12 @@ body {
 
 #keyword {
   position: fixed;
-  top: 50%;
-  left: 85%;
+  top: 55%;
+  left: 48%;
   transform: translate(-50%, -50%);
   font-size: 24px;
   font-weight: bold;
-  width: 500px;
+  max-width: 100%;
 }
 
 /* doesn't exisit?
