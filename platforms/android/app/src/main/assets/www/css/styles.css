@@ -7,8 +7,8 @@ body {
 /* main click area */
 #click-area {
   overflow: hidden;
-  width: 100%;
-  height: 85%;
+  width: 100vw;
+  height: 100vh;
   clear: both;
 }
 
@@ -20,13 +20,38 @@ body {
 }
 
 #draw-logo {
-  width: 125%;
+  max-width: 125%;
   top: -30px;
   left: -35px;
   position: relative;
   z-index: -1;
   margin-left: auto !important;
   margin-right: auto !important;
+}
+
+#welcome {
+  display: none;
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  width: 50%;
+  height: 30%;
+  margin-top: -15%;
+  margin-left: -25%;
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 25px;
+  background-color: rgb(255, 255, 255);
+  z-index: 1;
+}
+
+#welcome-logo {
+  width: 25%;
+}
+
+div.welcome p {
+  text-align: center;
+  font-size: 16px;
+
 }
 
 #keyword {
@@ -38,17 +63,6 @@ body {
   font-weight: bold;
   max-width: 100%;
 }
-
-/* doesn't exisit?
-.center {
-  width: 300px;
-  height: 300px;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  margin-left: -150px;
-  margin-top: -150px;
-}*/
 
   /* info div */
 #info-div {
@@ -123,20 +137,85 @@ img.prompt-buttons {
   /* prompt icons/options */
 
   /* color buttons/options */
-#color-options {
+#background-color {
+  display: none;
+  background-color: white;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+  overflow: scroll;
+}
+
+/* #background-options {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+} */
+
+.color-buttons {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 175px;
+  height: 125px;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+#teal {
+  background-image: url("../img/teal.png");
+  margin: 15px 2px 2px 10px;
+}
+
+#purplePinkPattern {
+  background-image: url("../img/purplePinkPattern.png");
+  margin: 15px 10px 2px 2px;
+}
+
+#orangeRed {
+  background-image: url("../img/orangeRed.png");
+  margin: 2px 2px 2px 10px;
+}
+
+#blueGreen {
+  background-image: url("../img/blueGreen.png");
+  margin: 2px 10px 2px 2px;
+}
+
+#pinkPurple {
+  background-image: url("../img/pinkPurple.png");
+  margin: 2px 2px 2px 10px;
+}
+
+#paper {
+  background-image: url("../img/paper.png");
+  margin: 2px 10px 2px 2px;
+}
+
+#hotPink {
+  background-image: url("../img/hotPink.png");
+  margin: 2px 2px 2px 10px;
+}
+
+/* #color-options {
   display: none;
   position: fixed;
   bottom: 10%;
   left: 33%;
-}
+} */
 
-.color-buttons {
+/* .color-buttons {
   height: 19% !important;
 }
 
 img.color-buttons {
   height: 62px !important;
-}
+} */
   /* color buttons/options */
 
 /* bottom menu bar */

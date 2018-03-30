@@ -1,66 +1,66 @@
 {
-  "prepare_queue": {
-    "installed": [],
-    "uninstalled": []
-  },
-  "config_munge": {
-    "files": {}
-  },
-  "installed_plugins": {
-    "cordova-plugin-whitelist": {
-      "PACKAGE_NAME": "com.phonegap.helloworld"
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
     },
-    "cordova-plugin-console": {
-      "PACKAGE_NAME": "com.phonegap.helloworld"
+    "config_munge": {
+        "files": {}
     },
-    "cordova-sqlite-evcore-extbuild-free": {
-      "PACKAGE_NAME": "com.phonegap.helloworld"
+    "installed_plugins": {
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.phonegap.helloworld"
+        },
+        "cordova-plugin-dbcopy": {
+            "PACKAGE_NAME": "com.phonegap.helloworld"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.phonegap.helloworld"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.phonegap.helloworld"
+        },
+        "cordova-sqlite-evcore-extbuild-free": {
+            "PACKAGE_NAME": "com.phonegap.helloworld"
+        }
     },
-    "cordova-plugin-splashscreen": {
-      "PACKAGE_NAME": "com.phonegap.helloworld"
-    },
-    "cordova-plugin-dbcopy": {
-      "PACKAGE_NAME": "com.phonegap.helloworld"
+    "dependent_plugins": {},
+    "modules": [
+        {
+            "file": "plugins/cordova-plugin-dbcopy/www/sqlDB.js",
+            "id": "cordova-plugin-dbcopy.sqlDB",
+            "pluginId": "cordova-plugin-dbcopy",
+            "clobbers": [
+                "window.plugins.sqlDB"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-splashscreen/www/splashscreen.js",
+            "id": "cordova-plugin-splashscreen.SplashScreen",
+            "pluginId": "cordova-plugin-splashscreen",
+            "clobbers": [
+                "navigator.splashscreen"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-splashscreen/src/browser/SplashScreenProxy.js",
+            "id": "cordova-plugin-splashscreen.SplashScreenProxy",
+            "pluginId": "cordova-plugin-splashscreen",
+            "runs": true
+        },
+        {
+            "file": "plugins/cordova-sqlite-evcore-extbuild-free/www/SQLitePlugin.js",
+            "id": "cordova-sqlite-evcore-extbuild-free.SQLitePlugin",
+            "pluginId": "cordova-sqlite-evcore-extbuild-free",
+            "clobbers": [
+                "SQLitePlugin"
+            ]
+        }
+    ],
+    "plugin_metadata": {
+        "cordova-plugin-console": "1.0.7",
+        "cordova-plugin-dbcopy": "2.0.0",
+        "cordova-plugin-splashscreen": "5.0.2",
+        "cordova-plugin-whitelist": "1.2.2",
+        "cordova-sqlite-evcore-extbuild-free": "0.9.3"
     }
-  },
-  "dependent_plugins": {},
-  "modules": [
-    {
-      "file": "plugins/cordova-sqlite-evcore-extbuild-free/www/SQLitePlugin.js",
-      "id": "cordova-sqlite-evcore-extbuild-free.SQLitePlugin",
-      "pluginId": "cordova-sqlite-evcore-extbuild-free",
-      "clobbers": [
-        "SQLitePlugin"
-      ]
-    },
-    {
-      "file": "plugins/cordova-plugin-splashscreen/www/splashscreen.js",
-      "id": "cordova-plugin-splashscreen.SplashScreen",
-      "pluginId": "cordova-plugin-splashscreen",
-      "clobbers": [
-        "navigator.splashscreen"
-      ]
-    },
-    {
-      "file": "plugins/cordova-plugin-splashscreen/src/browser/SplashScreenProxy.js",
-      "id": "cordova-plugin-splashscreen.SplashScreenProxy",
-      "pluginId": "cordova-plugin-splashscreen",
-      "runs": true
-    },
-    {
-      "file": "plugins/cordova-plugin-dbcopy/www/sqlDB.js",
-      "id": "cordova-plugin-dbcopy.sqlDB",
-      "pluginId": "cordova-plugin-dbcopy",
-      "clobbers": [
-        "window.plugins.sqlDB"
-      ]
-    }
-  ],
-  "plugin_metadata": {
-    "cordova-plugin-whitelist": "1.2.2",
-    "cordova-plugin-console": "1.0.7",
-    "cordova-sqlite-evcore-extbuild-free": "0.9.3",
-    "cordova-plugin-splashscreen": "5.0.2",
-    "cordova-plugin-dbcopy": "2.0.0"
-  }
 }

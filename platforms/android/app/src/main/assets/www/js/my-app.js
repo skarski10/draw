@@ -20,14 +20,33 @@ var imaginative = 'imaginative';
 // Handle Cordova Device Ready Event
 $$(document).on('deviceready', function() {
   // alert('Device is ready!');
-  window.plugins.sqlDB.copy('semic_draw.db', 0, copysuccess, copyerror);
+  if (db == null) {
+    window.plugins.sqlDB.copy('semic_draw.db', 0, copysuccess, copyerror);
+    db = window.sqlitePlugin.openDatabase({
+      name: 'semic_draw.db',
+      location: 'default',
+      androidDatabaseImplementation: 2,
+      androidLockWorkaround: 1
+    }, successcb, errorcb)
+  } else {
+    db = window.sqlitePlugin.openDatabase({
+      name: 'semic_draw.db',
+      location: 'default',
+      androidDatabaseImplementation: 2,
+      androidLockWorkaround: 1
+    }, successcb, errorcb)
+  }
 
-  db = window.sqlitePlugin.openDatabase({
-    name: 'semic_draw.db',
-    location: 'default',
-    androidDatabaseImplementation: 2,
-    androidLockWorkaround: 1
-  }, successcb, errorcb)
+  $$('body').css('background-image', localStorage.getItem('background'));
+  $$('#info-div').css('background-image', localStorage.getItem('background'));
+  if(localStorage.getItem('category-image') != null) {
+    $$('#prompt-category').attr('src', localStorage.getItem('category-image'));
+  }
+  if(localStorage.getItem('current-keyword') != null) {
+    $$('#keyword').text(localStorage.getItem('current-keyword'));
+  } else {
+    $$('#welcome').show();
+  }
 
   // db.sqlBatch([
   //   'DROP TABLE IF EXISTS imaginative',
@@ -48,15 +67,6 @@ $$(document).on('deviceready', function() {
   // function(error) {
   //   alert('Populate table error: ' + error.message);
   // });
-
-  $$('body').css('background-image', localStorage.getItem('background'));
-  $$('#info-div').css('background-image', localStorage.getItem('background'));
-  if(localStorage.getItem('category-image') != null) {
-    $$('#prompt-category').attr('src', localStorage.getItem('category-image'));
-  }
-  if(localStorage.getItem('current-keyword') != null) {
-    $$('#keyword').text(localStorage.getItem('current-keyword'));
-  }
 });
 
 
@@ -72,7 +82,6 @@ function getKeyword (table) {
     })
   }
   if (table == "non_representational") {
-    alert(table);
     db.executeSql('SELECT keyword FROM non_representational ORDER BY RANDOM() LIMIT 1', [], function (result) {
       // alert('got keyword: ' + JSON.stringify(result.rows.item(0).keyword));
       document.getElementById('keyword').innerHTML = result.rows.item(0).keyword;
@@ -134,7 +143,7 @@ function getKeyword (table) {
 // click to see prompt category folders
 $$('#prompt-category').on('click', function() {
   $$('#prompt-folders').show();
-  $$('#color-options').hide();
+  $$('#background-color').hide();
 });
 
 // click on specific prompt category folder
@@ -162,8 +171,8 @@ $$('.prompt-buttons').on('click', function() {
 });
 
 // click to show background color options
-$$('#background-color').on('click', function() {
-  $$('#color-options').show();
+$$('#background-color-button').on('click', function() {
+  $$('#background-color').show();
   $$('#prompt-folders').hide();
 });
 
@@ -173,15 +182,15 @@ $$('.color-buttons').on('click', function() {
   localStorage.setItem('background', 'url(' + backgroundColor + ')');
   $$('body').css('background-image', 'url(' + backgroundColor + ')');
   $$('#info-div').css('background-image', 'url(' + backgroundColor + ')');
-  $$('#color-options').hide();
+  $$('#background-color').hide();
 });
 
 // click area is all but bottom option bar. Clicking here will give new drawing prompt
 $$('#click-area').on('click', function() {
   if(localStorage.getItem('current-keyword') != null) {
-    if(localStorage.getItem('current-category') == 'all') {
-      getKeyword();
-    }
+  //   if(localStorage.getItem('current-category') == 'all') {
+  //     getKeyword();
+  //   }
     if(localStorage.getItem('current-category') == 'non_representational') {
       getKeyword(nonRepresentational);
     }
@@ -192,14 +201,23 @@ $$('#click-area').on('click', function() {
       getKeyword(imaginative);
     }
   }
-  $$('#color-options').hide();
+  $$('#background-color').hide();
   $$('#prompt-folders').hide();
   $$('#info-div').hide();
+  $$('#welcome').hide();
 })
 
 // click to show info div
 $$('#info-button').on('click', function() {
   $$('#info-div').show();
+})
+
+$$('#buttons').on("click", function() {
+  $$('#welcome').hide();
+})
+
+$$('#welcome').on("click", function() {
+  $$('#welcome').hide();
 })
 
 function errorcb(err) {
@@ -212,7 +230,7 @@ function successcb() {
 
 function copysuccess()
 {
-  db = window.sqlitePlugin.openDatabase({name: "semic_draw.db"});
+  // db = window.sqlitePlugin.openDatabase({name: "semic_draw.db"});
 }
 
 function copyerror(e)
