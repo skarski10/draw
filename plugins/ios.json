@@ -16,10 +16,10 @@
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "com.phonegap.helloworld"
     },
-    "cordova-plugin-splashscreen": {
+    "cordova-sqlite-evcore-extbuild-free": {
       "PACKAGE_NAME": "com.phonegap.helloworld"
     },
-    "cordova-sqlite-evcore-extbuild-free": {
+    "cordova-plugin-splashscreen": {
       "PACKAGE_NAME": "com.phonegap.helloworld"
     }
   },

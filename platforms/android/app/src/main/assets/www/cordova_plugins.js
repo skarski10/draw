@@ -9,19 +9,19 @@ module.exports = [
     ]
   },
   {
-    "id": "cordova-plugin-splashscreen.SplashScreen",
-    "file": "plugins/cordova-plugin-splashscreen/www/splashscreen.js",
-    "pluginId": "cordova-plugin-splashscreen",
-    "clobbers": [
-      "navigator.splashscreen"
-    ]
-  },
-  {
     "id": "cordova-sqlite-evcore-extbuild-free.SQLitePlugin",
     "file": "plugins/cordova-sqlite-evcore-extbuild-free/www/SQLitePlugin.js",
     "pluginId": "cordova-sqlite-evcore-extbuild-free",
     "clobbers": [
       "SQLitePlugin"
+    ]
+  },
+  {
+    "id": "cordova-plugin-splashscreen.SplashScreen",
+    "file": "plugins/cordova-plugin-splashscreen/www/splashscreen.js",
+    "pluginId": "cordova-plugin-splashscreen",
+    "clobbers": [
+      "navigator.splashscreen"
     ]
   }
 ];
@@ -30,9 +30,9 @@ module.exports.metadata =
 {
   "cordova-plugin-console": "1.0.7",
   "cordova-plugin-dbcopy": "2.0.0",
-  "cordova-plugin-splashscreen": "5.0.2",
   "cordova-plugin-whitelist": "1.2.2",
-  "cordova-sqlite-evcore-extbuild-free": "0.9.3"
+  "cordova-sqlite-evcore-extbuild-free": "0.9.3",
+  "cordova-plugin-splashscreen": "5.0.2"
 };
 // BOTTOM OF METADATA
 });

@@ -9,7 +9,7 @@
     "cordova-ios": "^4.5.4",
     "cordova-plugin-console": "~1.0.1",
     "cordova-plugin-dbcopy": "git+https://github.com/an-rahulpandey/cordova-plugin-dbcopy.git",
-    "cordova-plugin-splashscreen": "git+https://github.com/apache/cordova-plugin-splashscreen.git",
+    "cordova-plugin-splashscreen": "^5.0.2",
     "cordova-plugin-whitelist": "~1.2.0",
     "cordova-sqlite-evcore-extbuild-free": "^0.9.5"
   },
@@ -29,8 +29,8 @@
       "cordova-plugin-whitelist": {},
       "cordova-plugin-console": {},
       "cordova-plugin-dbcopy": {},
-      "cordova-plugin-splashscreen": {},
-      "cordova-sqlite-evcore-extbuild-free": {}
+      "cordova-sqlite-evcore-extbuild-free": {},
+      "cordova-plugin-splashscreen": {}
     }
   }
 }

@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <!--
-          Customize this policy to fit your own app's needs. For more guidance, see:
-              https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
-          Some notes:
-              * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
-              * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
-              * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
-                  * Enable inline JS: add 'unsafe-inline' to default-src
-          -->
       <meta http-equiv="Content-Security-Policy" content="img-src 'self' data:; default-src *; style-src 'self' http://* 'unsafe-inline'; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval'" />
 
       <!-- Required meta tags-->
@@ -23,142 +14,191 @@
       <!-- Your app title -->
       <title>draw!</title>
 
+      <!-- app links -->
+      <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
       <link rel="stylesheet" href="lib/framework7/css/framework7.ios.min.css">
       <link rel="stylesheet" href="lib/framework7/css/framework7.ios.colors.min.css">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
       <link rel="stylesheet" href="css/styles.css">
+      <!-- end app links -->
   </head>
 
   <body>
       <!-- Views -->
       <div class="views">
-          <!-- Your main view, should have "view-main" class -->
-          <div class="view view-main">
-            <!-- <div id="welcome">
-              <img src="img/draw.png" alt="" id="welcome-logo">
-              <p>Welcome to draw! Select a category below to get a drawing prompt</p>
-            </div> -->
-            <div class="">
-              <div class="container-fluid" id="click-area">
-                <div class="row">
-                  <div class="" id="logo-div">
-                    <img src="img/draw.png" alt="draw! logo" id="draw-logo">
-                  </div>
-                  <!-- current prompt -->
-                  <div id="keyword">
+        <!-- Your main view, should have "view-main" class -->
+        <div class="view view-main">
 
-                  </div>
-                </div>
+          <!-- main view with draw! logo and current prompt -->
+
+          <div class="container-fluid" id="top-view">
+            <div class="row" id="click-area">
+              <div class="" id="logo-div">
+                <img src="img/draw.png" alt="draw! logo" id="draw-logo">
               </div>
+              <!-- current prompt -->
+              <div id="keyword">
 
-              <div class="container-fluid" id="info-div">
-                <div id="info">
-                  <img src="img/draw.png" alt="draw! Logo" id='info-draw-logo'>
-                  <br>
-                  <span id="info-text">Thanks for using draw! If you have any suggestions or would like to submit your own ideas visit www.drawsomethingapp.com</span>
-                  <br>
-                  <br>
-                  <span id="copyright">Copyright 2016 SEMIC Group</span>
-                </div>
-              </div>
-
-              <div class="container-fluid" id="background-color">
-                <div class="row">
-                  <div class="col-xs-6 color-buttons" id="teal">
-                  </div>
-                  <div class="col-xs-6 color-buttons" id="purplePinkPattern">
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-xs-6 color-buttons" id="orangeRed">
-                  </div>
-                  <div class="col-xs-6 color-buttons" id="blueGreen">
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-xs-6 color-buttons" id="pinkPurple">
-                  </div>
-                  <div class="col-xs-6 color-buttons" id="paper">
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-xs-6 color-buttons" id="hotPink">
-                  </div>
-                  <div class="col-xs-6 color-buttons" id="">
-
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-xs-6 color-buttons" id="">
-
-                  </div>
-                  <div class="col-xs-6 color-buttons" id="">
-
-                  </div>
-                </div>
               </div>
             </div>
-
-              <!-- bottom menu bar -->
-              <div class="container-fluid" id="buttons">
-                <div class="row">
-                  <!-- prompt category folders -->
-                  <div class="col-xs-4" id="prompt-folders">
-                    <div class="row pull-left">
-                      <div class="category-icons" id="all-categories">
-                        <img src="img/all-folder.png" alt="all catagories button" class="prompt-buttons"><span class="prompt-label">All</span>
-                      </div>
-                    </div>
-                    <div class="row pull-left">
-                      <div class="category-icons" id="rep-categories">
-                        <img src="img/rep-folder.png" alt="representative button" class="prompt-buttons"><span class="prompt-label">Representative</span>
-                      </div>
-                    </div>
-                    <div class="row pull-left">
-                      <div class="category-icons" id="non-rep-categories">
-                        <img src="img/non-rep-folder.png" alt="non representative button" class="prompt-buttons"><span class="prompt-label">Non-Representative</span>
-                      </div>
-                    </div>
-                    <div class="row pull-left">
-                      <div class="category-icons">
-                        <img src="img/imaginative-folder.png" alt="imaginative logo" class="prompt-buttons" id="imaginative-categories"><span class="prompt-label">Imaginative</span>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- background color buttons -->
-                  <!-- <div class="col-xs-4" id="color-options">
-                    <div class="row">
-                      <img src="img/green_teal_color_button.png" alt="teal button" class="color-buttons" id="teal">
-                    </div>
-                    <div class="row">
-                      <img src="img/purple_dotted_color_button.png" alt="purple dotted button" class="color-buttons" id="purplePinkPattern">
-                    </div>
-                    <div class="row">
-                      <img src="img/paper_color_button.png" alt="paper button"  class="color-buttons" id="paper">
-                    </div>
-                    <div class="row">
-                      <img src="img/orange_color_button.png" alt="orange button" class="color-buttons" id="orangeRed">
-                    </div>
-                    <div class="row">
-                      <img src="img/blue_color_button.png" alt="blue button" class="color-buttons" id="blueGreen">
-                    </div>
-                    <div class="row">
-                      <img src="img/purple_color_button.png" alt="purple button" class="color-buttons" id="pinkPurple">
-                    </div>
-                  </div> -->
-                </div>
-              <!-- three menu icons at the bottom -->
-              <div class="row" id="menu-icons">
-                <img src="img/category-folder.png" alt="category icon" class="menu-buttons" id="prompt-category">
-                <img src="img/button-color.png" alt="color icon" class="menu-buttons" id="background-color-button">
-                <img src="img/button-info.png" alt="info icon" class="menu-buttons" id="info-button">
-              </div>
+            <!-- menu icons -->
+            <div class="row menu-icons">
+              <img src="img/category-folder.png" alt="category icon" class="menu-buttons word-pack-categories">
+              <img src="img/background-color.png" alt="color icon" class="menu-buttons background-color-button">
+              <img src="img/info-button.png" alt="info icon" class="menu-buttons info-button">
             </div>
           </div>
+
+          <!-- end main view with draw! logo and current prompt -->
+
+
+
+          <!-- prompt category packs view -->
+
+          <div class="container-fluid" id="word-pack-view">
+            <div id="word-packs">
+              <div id="prompt-draw">
+
+              </div>
+              <!-- category packs -->
+
+              <!-- <div class="row category-icons" id="all-folder">
+              <img src="img/all-folder.png" alt="all catagories button" class="prompt-buttons"><span class="prompt-label">ALL</span>
+              <button type="button" class="btn btn-success buy-button" name="buy">BUY</button>
+            </div> -->
+              <div class="row category-icons" id="rep-folder">
+                <img src="img/rep-folder.png" alt="representative button" class="prompt-buttons">
+                <p class="prompt-label">
+                  REPRESENTATIONAL
+                  <br>
+                  WORD PACK
+                </p>
+                <button type="button" class="btn btn-success buy-button" name="buy">BUY</button>
+              </div>
+              <div class="row category-icons" id="non-rep-folder">
+                <img src="img/non-rep-folder.png" alt="non representative button" class="prompt-buttons">
+                <p class="prompt-label">
+                  NON-REPRESENTATIONAL
+                  <br>
+                  WORD PACK
+                </p>
+                <button type="button" class="btn btn-success buy-button" name="buy">BUY</button>
+              </div>
+              <div class="row category-icons" id="imaginative-folder">
+                <img src="img/imaginative-folder.png" alt="imaginative logo" class="prompt-buttons">
+                <p class="prompt-label">
+                  IMAGINATIVE
+                  <br>
+                  WORD PACK
+                </p>
+                <button type="button" class="btn btn-success buy-button" name="buy">BUY</button>
+              </div>
+              <!-- end category packs -->
+            </div>
+            <div class="row menu-icons">
+              <img src="img/category-folder.png" alt="category icon" class="menu-buttons word-pack-categories">
+              <img src="img/background-color.png" alt="color icon" class="menu-buttons background-color-button">
+              <img src="img/info-button.png" alt="info icon" class="menu-buttons info-button">
+            </div>
+          </div>
+
+          <!-- prompt category packs view end-->
+
+
+          <!-- background color options view-->
+
+          <div class="container-fluid" id="background-color-view">
+            <div class="" id="background-color">
+              <div id="background-color-draw">
+
+              </div>
+              <!-- background color options -->
+              <div class="row">
+                <div class="col-xs-6 background-options" id="teal">
+                </div>
+                <div class="col-xs-6 background-options" id="purplePinkPattern">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-6 background-options" id="orangeRed">
+                </div>
+                <div class="col-xs-6 background-options" id="blueGreen">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-6 background-options" id="pinkPurple">
+                </div>
+                <div class="col-xs-6 background-options" id="paper">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-6 background-options" id="redPurple">
+                </div>
+                <div class="col-xs-6 background-options" id="orangeRed">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-6 background-options" id="">
+
+                </div>
+                <div class="col-xs-6 background-options" id="">
+
+                </div>
+              </div>
+              <!-- end background color options -->
+
+            </div>
+            <!-- menu icons -->
+            <div class="row menu-icons">
+              <img src="img/category-folder.png" alt="category icon" class="menu-buttons word-pack-categories">
+              <img src="img/background-color.png" alt="color icon" class="menu-buttons background-color-button">
+              <img src="img/info-button.png" alt="info icon" class="menu-buttons info-button">
+            </div>
+          </div>
+
+          <!-- background color options view-->
+
+
+          <!-- draw info view -->
+
+          <div class="container-fluid" id="info-view">
+            <div class="" id="info-div">
+              <div id="info-draw-logo">
+                <img src="img/draw.png" alt="draw! Logo" id="info-draw-image">
+              </div>
+              <div id="developed-by">
+                <p>IS DEVELOPED BY</p>
+              </div>
+              <div id="malolo-design">
+                <img src="img/malolo-design.png" alt="Melolo Design Co. & Tied House" id="malolo-design-image">
+              </div>
+              <div id="website">
+                <p>
+                  FOR QUESTIONS OR COMMENTS
+                  <br>
+                  PLEASE VISIT OUR SITE AT
+                  <br>
+                  WWW.DRAWSOMETHINGAPP.COM
+                </p>
+              </div>
+            </div>
+            <!-- menu icons -->
+            <div class="row menu-icons">
+              <img src="img/category-folder.png" alt="category icon" class="menu-buttons word-pack-categories">
+              <img src="img/background-color.png" alt="color icon" class="menu-buttons background-color-button">
+              <img src="img/info-button.png" alt="info icon" class="menu-buttons info-button">
+            </div>
+          </div>
+
+          <!-- draw info view -->
+
+        </div>
       </div>
+      <!-- scripts -->
       <script type="text/javascript" src="cordova.js"></script>
       <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
       <script type="text/javascript" src="js/my-app.js"></script>
+      <!-- end scripts -->
   </body>
 </html>
