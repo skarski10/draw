@@ -152,7 +152,6 @@ function getKeyword (table) {
 // click to see category packs
 $$(".word-pack-categories").on("click", function() {
   // hide/show views
-  console.log("hello from word packs ");
   $$("#word-pack-view").show();
   $$("#top-view").hide();
   $$("#background-color-view").hide();
@@ -189,9 +188,6 @@ $$(".category-icons").on("click", function() {
 
 // click to show background color options
 $$(".background-color-button").on("click", function() {
-  var backgroundOptions = $$(".background-options").attr("id");
-  alert("#" + backgroundOptions + "");
-  $$("#" + backgroundOptions + "").css("background-image", "url(" + backgroundOptions + ")")
   // hide/show views
   $$("#background-color-view").show();
   $$("#top-view").hide();
@@ -202,8 +198,6 @@ $$(".background-color-button").on("click", function() {
 // click to choose background color
 $$(".background-options").on("click", function() {
   var backgroundColor = "../www/img/" + $$(this).attr("id") + ".png";
-  console.log($$(this).attr("id"));
-
   // change to white draw logo and white menu icons
   if ($$(this).attr("id") == "pinkPurple") {
     $$("#draw-logo").attr("src", "img/draw-white.png");

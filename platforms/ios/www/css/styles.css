@@ -76,6 +76,8 @@ body {
   position: relative;
   width: 93vw;
   height: 89vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 #prompt-draw {
@@ -138,14 +140,16 @@ button.buy-button {
   text-align: center;
   width: 100vw;
   height: 100vh;
-  overflow: scroll;
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 #background-color {
   position: relative;
   width: 93vw;
   height: 89vh;
-  overflow: scroll;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 #background-color-draw {
@@ -158,6 +162,7 @@ button.buy-button {
   margin-bottom: 5px;
   position: sticky;
   z-index: 99;
+  top: 0;
 }
 
 .background-options {
@@ -170,11 +175,11 @@ button.buy-button {
   border-radius: 8px;
 }
 
-.background-options {
+/* .background-options {
   margin: 4px;
-}
+} */
 
-/* #teal {
+#teal {
   background-image: url("../img/teal.png");
   margin: 15px 2px 2px 10px;
 }
@@ -206,8 +211,8 @@ button.buy-button {
 
 #redPurple {
   background-image: url("../img/hotPink.png");
-  margin: 2px 2px 2px 10px;
-} */
+  margin: 2px 12px 2px 10px;
+}
 
   /* end background color options view */
 
