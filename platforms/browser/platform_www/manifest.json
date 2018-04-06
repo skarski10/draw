@@ -1,6 +1,6 @@
 {
-  "name": "draw",
-  "short_name": "draw",
+  "name": "draw!",
+  "short_name": "draw!",
   "description": "Description of your app from template",
   "start_url": "index.html",
   "scope": "index.html",
