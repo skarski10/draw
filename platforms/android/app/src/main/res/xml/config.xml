@@ -3,10 +3,6 @@
     <feature name="sqlDB">
         <param name="android-package" value="me.rahul.plugins.sqlDB.sqlDB" />
     </feature>
-    <feature name="SplashScreen">
-        <param name="android-package" value="org.apache.cordova.splashscreen.SplashScreen" />
-        <param name="onload" value="true" />
-    </feature>
     <feature name="Whitelist">
         <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
         <param name="onload" value="true" />
@@ -29,19 +25,5 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
-    <splash density="land-hdpi" src="res/screen/android/splash.png" />
-    <splash density="land-ldpi" src="res/screen/android/splash.png" />
-    <splash density="land-mdpi" src="res/screen/android/splash.png" />
-    <splash density="land-xhdpi" src="res/screen/android/splash.png" />
-    <splash density="port-hdpi" src="res/screen/android/splash.png" />
-    <splash density="port-ldpi" src="res/screen/android/splash.png" />
-    <splash density="port-mdpi" src="res/screen/android/splash.png" />
-    <splash density="port-xhdpi" src="res/screen/android/splash.png" />
-    <allow-intent href="market:*" />
     <preference name="loglevel" value="DEBUG" />
-    <preference name="DisallowOverscroll" value="true" />
-    <preference name="SplashScreenDelay" value="5000" />
-    <preference name="SplashMaintainAspectRatio" value="true" />
-    <preference name="SplashShowOnlyFirstTime" value="false" />
-    <preference name="android-minSdkVersion" value="14" />
 </widget>

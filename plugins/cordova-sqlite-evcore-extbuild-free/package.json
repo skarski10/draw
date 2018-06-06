@@ -1,8 +1,8 @@
 {
   "_from": "cordova-sqlite-evcore-extbuild-free",
-  "_id": "cordova-sqlite-evcore-extbuild-free@0.9.3",
+  "_id": "cordova-sqlite-evcore-extbuild-free@0.9.7",
   "_inBundle": false,
-  "_integrity": "sha512-HHBD0UFVUEBpwfpaAbbK6cNHZYfTuikllKUPMLwbcm3Oo/qKb+mA6aRKaek4A3kriC0xmaKBcSDeMPzMkOMYjA==",
+  "_integrity": "sha512-H4sJtzhKDYnkmO18yhT19aBdFrUEKqdNVs5rU2mwcxsg13DdRfXcIVJA2Iem89Iny3p5dcX00F7T4D2D3IOE9Q==",
   "_location": "/cordova-sqlite-evcore-extbuild-free",
   "_phantomChildren": {},
   "_requested": {
@@ -19,8 +19,8 @@
     "#USER",
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/cordova-sqlite-evcore-extbuild-free/-/cordova-sqlite-evcore-extbuild-free-0.9.3.tgz",
-  "_shasum": "2d4e10fff4ed26f7bfa17354c906df9535d60065",
+  "_resolved": "https://registry.npmjs.org/cordova-sqlite-evcore-extbuild-free/-/cordova-sqlite-evcore-extbuild-free-0.9.7.tgz",
+  "_shasum": "be2e872f2d8f88a84ed10bb4093ed9b759932c8f",
   "_spec": "cordova-sqlite-evcore-extbuild-free",
   "_where": "/Users/Skarski/Desktop/draw",
   "author": {
@@ -53,7 +53,7 @@
     "cordova-osx",
     "cordova-windows"
   ],
-  "license": "GPL",
+  "license": "GPL-3.0 OR Commercial",
   "name": "cordova-sqlite-evcore-extbuild-free",
   "repository": {
     "type": "git",
@@ -62,5 +62,5 @@
   "scripts": {
     "start": "node scripts/prepareSpec.js"
   },
-  "version": "0.9.3"
+  "version": "0.9.7"
 }

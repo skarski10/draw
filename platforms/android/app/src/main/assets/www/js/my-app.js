@@ -5,18 +5,14 @@ var myApp = new Framework7();
 var $$ = Dom7;
 
 // // variables for server url
-// var url = "http://staging.redleafhq.com/";
-// var file = "semicdraw.php";
-// var nonRepresentational = "?s=non_representational";
-// var representational = "?s=representational";
-// var imaginative = "?s=imaginative";
-// var random = "?s=rando";
+var url = "http://staging.redleafhq.com/";
+var file = "semicdraw.php";
+var nonRepresentational = "?s=non_representational";
+var representational = "?s=representational";
+var imaginative = "?s=imaginative";
+var random = "?s=rando";
 
 var db = null;
-var nonRepresentational = "non_representational";
-var representational = "representational";
-var imaginative = "imaginative";
-
 
 // Handle Cordova Device Ready Event
 $$(document).on("deviceready", function() {
@@ -26,7 +22,7 @@ $$(document).on("deviceready", function() {
     window.plugins.sqlDB.copy("semic_draw.db", 0, copysuccess, copyerror);
     db = window.sqlitePlugin.openDatabase({
       name: "semic_draw.db",
-      location: "default",
+      location: 'default',
       androidDatabaseImplementation: 2,
       androidLockWorkaround: 1
     }, successcb, errorcb)
@@ -34,7 +30,7 @@ $$(document).on("deviceready", function() {
     // if database has already been copied, open database
     db = window.sqlitePlugin.openDatabase({
       name: "semic_draw.db",
-      location: "default",
+      location: 'default',
       androidDatabaseImplementation: 2,
       androidLockWorkaround: 1
     }, successcb, errorcb)
@@ -131,16 +127,14 @@ function getKeyword (table) {
 // 		);
 // 	}
 // }
-//
-// // function to get prompt from server
-// function getKeyword() {
+
+// function to download work packs from server
+// function downloadWordPack() {
 //   var request = new XMLHttpRequest();
 //   var serverUrl = url + file + table;
 //   request.onreadystatechange = function() {
 //     if (this.readyState == 4 && ((this.status == 200) || (this.status == 0))) {
 //        var prompt = JSON.parse(this.responseText);
-//        document.getElementById("keyword").innerHTML = prompt.keywords;
-//        localStorage.setItem("current-keyword", prompt.keywords);
 //     } else {
 //       alert("onreadystatechange: N " + "status: " + this.status + " ready state: " + this.readyState);
 //     }
@@ -151,6 +145,7 @@ function getKeyword (table) {
 
 // click to see category packs
 $$(".word-pack-categories").on("click", function() {
+  alert("Word Packs Div");
   // hide/show views
   $$("#word-pack-view").show();
   $$("#top-view").hide();
@@ -166,15 +161,15 @@ $$(".category-icons").on("click", function() {
   //   localStorage.setItem("current-category", "all");
   // }
   if($$(this).attr("id") == "non-rep-folder") {
-    getKeyword(nonRepresentational);
+    getKeyword("non_Representational");
     localStorage.setItem("current-category", "non_representational");
   }
   if($$(this).attr("id") == "imaginative-folder") {
-    getKeyword(imaginative);
+    getKeyword("imaginative");
     localStorage.setItem("current-category", "imaginative");
   }
   if($$(this).attr("id") == "rep-folder") {
-    getKeyword(representational);
+    getKeyword("representational");
     localStorage.setItem("current-category", "representational");
   }
   localStorage.setItem("category-image", "img/" + imageUpdate + ".png");
@@ -188,6 +183,7 @@ $$(".category-icons").on("click", function() {
 
 // click to show background color options
 $$(".background-color-button").on("click", function() {
+  alert("Background color Div");
   // hide/show views
   $$("#background-color-view").show();
   $$("#top-view").hide();
@@ -232,13 +228,13 @@ $$("#top-view").on("click", function() {
   //     getKeyword();
   //   }
     if(localStorage.getItem("current-category") == "non_representational") {
-      getKeyword(nonRepresentational);
+      getKeyword("non_Representational");
     }
     if(localStorage.getItem("current-category") == "representational") {
-      getKeyword(representational);
+      getKeyword("representational");
     }
     if(localStorage.getItem("current-category") == "imaginative") {
-      getKeyword(imaginative);
+      getKeyword("imaginative");
     }
   }
   $$("#word-pack-view").hide();
@@ -248,6 +244,7 @@ $$("#top-view").on("click", function() {
 
 // click to show info div
 $$(".info-button").on("click", function() {
+  alert("info div");
   $$("#info-view").show();
   $$("#top-view").hide();
   $$("#word-pack-view").hide();

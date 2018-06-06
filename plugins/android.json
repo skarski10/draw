@@ -13,9 +13,6 @@
     "cordova-plugin-dbcopy": {
       "PACKAGE_NAME": "com.phonegap.helloworld"
     },
-    "cordova-plugin-splashscreen": {
-      "PACKAGE_NAME": "com.phonegap.helloworld"
-    },
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "com.phonegap.helloworld"
     },

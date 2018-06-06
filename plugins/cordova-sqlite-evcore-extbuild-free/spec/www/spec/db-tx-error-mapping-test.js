@@ -65,13 +65,17 @@ var mytests = function() {
         // - Android plugin with androidDatabaseImplementation: 2 setting indicates SQLError code 0
         //   (SQLError.UNKNOWN_ERR) in cases other than a syntax error or constraint violation
         // - Windows plugin always reports error code 0 (SQLError.UNKNOWN_ERR) and
-        //   INCONSISTENT messages (missing actual error info)
+        //   INCONSISTENT messages (missing actual error info WITH ERROR DESCRIPTION FROM SQLite)
+        // - In case of default Android evcore-native-driver database access implementation
+        //   error message from sqlite is missing actual error description from SQLite
 
         // OTHER ERROR MAPPING NOTES:
         //
         // - (WebKit) Web SQL apparently includes 'prepare statement error' vs
         //   'execute statement error' info along with the sqlite error code
-        // - Default Android implementation (Android-sqlite-connector) includes
+        // - XXX TODO NOT INCLUDED BY DEFAULT Android-sqlite-evcore-native-driver-free
+        //   IMPLEMENTATION ON THIS PLUGIN VERSION:
+        //   Default Android implementation (Android-sqlite-connector) includes
         //   sqlite3_prepare_v2 vs sqlite3_step function call info indicating
         //   'prepare statement error' vs 'execute statement error'
         // - Android plugin with androidDatabaseImplementation: 2 setting includes the sqlite error code
@@ -158,7 +162,7 @@ var mytests = function() {
           });
         }, MYTIMEOUT);
 
-        it(suiteName + 'INSERT syntax error [VALUES in the wrong place] with a trailing space', function(done) {
+        it(suiteName + 'INSERT syntax error [VALUES in the wrong place (XXX "incomplete input")] with a trailing space [XXX TBD PROPER INFO MESSAGE NOT ON Android/...]', function(done) {
           if (isWP8) pending('SKIP for WP(8)'); // FUTURE TBD
 
           var db = openDatabase("INSERT-Syntax-error-test.db", "1.0", "Demo", DEFAULT_SIZE);
@@ -196,12 +200,12 @@ var mytests = function() {
                 expect(error.message).toMatch(/could not prepare statement.*1 near \"VALUES\": syntax error/);
               else if (isWindows)
                 expect(error.message).toMatch(/Error preparing an SQLite statement/);
-              else if (isAndroid && !isImpl2)
+              else if (isAndroid && !isImpl2) //* XXX TBD PROPER INFO MESSAGE NOT ON Android/...
                 expect(error.message).toMatch(/syntax error or other error.*code 1/);
               else if (isAndroid && isImpl2)
                 expect(error.message).toMatch(/near \"VALUES\": syntax error.*code 1.*while compiling: INSERT INTO test_table/);
               else
-                expect(error.message).toMatch(/near \" \": syntax error/);
+                expect(error.message).toMatch(/incomplete input/); // XXX SQLite 3.22.0 on iOS/macOS
 
               // FAIL transaction & check reported transaction error:
               return true;
@@ -226,8 +230,10 @@ var mytests = function() {
               expect(error.message).toMatch(/callback raised an exception.*or.*error callback did not return false/);
             else if (isWindows)
               expect(error.message).toMatch(/error callback did not return false.*Error preparing an SQLite statement/);
+            else if (!isWindows && isAndroid) // XXX TBD PROPER INFO MESSAGE NOT ON Android/...
+              expect(error.message).toMatch(/error callback did not return false.*syntax error/); // XXX Android/...
             else
-              expect(error.message).toMatch(/error callback did not return false.*syntax error/);
+              expect(error.message).toMatch(/error callback did not return false.*incomplete input/); // XXX SQLite 3.22.0 on iOS/macOS
 
             isWebSql ? done() : db.close(done, done);
           }, function() {

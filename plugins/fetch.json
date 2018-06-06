@@ -15,14 +15,6 @@
     "is_top_level": true,
     "variables": {}
   },
-  "cordova-plugin-dbcopy": {
-    "source": {
-      "type": "registry",
-      "id": "https://github.com/an-rahulpandey/cordova-plugin-dbcopy.git"
-    },
-    "is_top_level": true,
-    "variables": {}
-  },
   "cordova-sqlite-evcore-extbuild-free": {
     "source": {
       "type": "registry",
@@ -31,10 +23,10 @@
     "is_top_level": true,
     "variables": {}
   },
-  "cordova-plugin-splashscreen": {
+  "cordova-plugin-dbcopy": {
     "source": {
       "type": "registry",
-      "id": "cordova-plugin-splashscreen@5.0.2"
+      "id": "https://github.com/an-rahulpandey/cordova-plugin-dbcopy.git"
     },
     "is_top_level": true,
     "variables": {}

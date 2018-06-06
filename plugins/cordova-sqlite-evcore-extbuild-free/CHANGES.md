@@ -1,5 +1,30 @@
 # Changes
 
+# cordova-sqlite-evcore-extbuild-free 0.9.7
+
+- fix for multi-byte UTF-8 characters on Android ref:
+  - litehelpers/Cordova-sqlite-evcore-extbuild-free#19 (<https://github.com/litehelpers/Cordova-sqlite-evcore-extbuild-free/issues/19>)
+  - litehelpers/Android-sqlite-evcore-native-driver-free#1 (<https://github.com/litehelpers/Android-sqlite-evcore-native-driver-free/pull/1>)
+  - litehelpers/Android-sqlite-evcore-native-driver-free#2 (<https://github.com/litehelpers/Android-sqlite-evcore-native-driver-free/pull/2>)
+
+### cordova-sqlite-storage 2.2.1
+
+- Fix Android/iOS src copyright, perpetually
+
+# cordova-sqlite-evcore-extbuild-free 0.9.6
+
+- SQLite 3.22.0, with SQLITE_DEFAULT_SYNCHRONOUS=3 (EXTRA DURABLE ref: litehelpers/Cordova-sqlite-storage#736) & other build fixes
+
+# cordova-sqlite-evcore-extbuild-free 0.9.5
+
+### cordova-sqlite-evcore-legacy-ext-common-free 0.0.4
+
+- additional evcore iOS/macOS/Windows compile-time options
+
+# cordova-sqlite-evcore-extbuild-free 0.9.4
+
+- Android evcore NDK JAR from cordova-sqlite-evcore-free-dependencies 0.8.0, no longer using JSMN component
+
 # cordova-sqlite-evcore-extbuild-free 0.9.3
 
 - cordova-sqlite-evcore-extbuild-free with SQLITE_THREADSAFE=1 on iOS/macOS ref: litehelpers/Cordova-sqlite-storage#754 (<https://github.com/litehelpers/Cordova-sqlite-storage/issues/754>)

@@ -5,13 +5,10 @@
   "main": "index.js",
   "dependencies": {
     "cordova-android": "^7.0.0",
-    "cordova-browser": "^5.0.3",
-    "cordova-ios": "^4.5.4",
     "cordova-plugin-console": "~1.0.1",
     "cordova-plugin-dbcopy": "git+https://github.com/an-rahulpandey/cordova-plugin-dbcopy.git",
-    "cordova-plugin-splashscreen": "^5.0.2",
     "cordova-plugin-whitelist": "~1.2.0",
-    "cordova-sqlite-evcore-extbuild-free": "^0.9.5"
+    "cordova-sqlite-evcore-extbuild-free": "^0.9.7"
   },
   "devDependencies": {},
   "scripts": {
@@ -21,16 +18,13 @@
   "license": "ISC",
   "cordova": {
     "platforms": [
-      "android",
-      "ios",
-      "browser"
+      "android"
     ],
     "plugins": {
       "cordova-plugin-whitelist": {},
       "cordova-plugin-console": {},
-      "cordova-plugin-dbcopy": {},
       "cordova-sqlite-evcore-extbuild-free": {},
-      "cordova-plugin-splashscreen": {}
+      "cordova-plugin-dbcopy": {}
     }
   }
 }
