@@ -14,6 +14,9 @@ var random = "?s=rando";
 
 var db = null;
 
+var ownedWordPacks = [];
+var ownedPackImages = [];
+
 // Handle Cordova Device Ready Event
 $$(document).on("deviceready", function() {
   // alert("Device is ready!");
@@ -106,6 +109,66 @@ function getKeyword (table) {
   }
 }
 
+function unlockWordPack (unlockTable) {
+  db.transaction(function (tx) {
+
+      var query = "UPDATE wordPackStatus SET wordPack = ? WHERE owned = 1";
+
+      tx.executeSql(query, [unlockTable], function(tx, res) {
+          console.log("insertId: " + res.insertId);
+          console.log("rowsAffected: " + res.rowsAffected);
+      },
+      function(tx, error) {
+          console.log('UPDATE error: ' + error.message);
+      });
+  }, function(error) {
+      console.log('transaction error: ' + error.message);
+  }, function() {
+      console.log('transaction ok');
+  });
+}
+
+function getWordPackStatus(int) {
+    ownedWordPacks = [];
+    ownedPackImages = [];
+
+    db.transaction(function (tx) {
+
+        var query = "SELECT wordPadk FROM wordPackStatus WHERE owned = ?";
+
+        tx.executeSql(query, [int], function (tx, resultSet) {
+
+            for(var i = 0; i < resultSet.rows.length; i++) {
+                console.log("1 = owned: " + resultSet.rows.item(i).wordPack);
+                ownedWordPacks.push(resultSet.rows.item(i).wordPack);
+                ownedPackImages.push(resultSet.rows.item(i).)
+
+            }
+        },
+        function (tx, error) {
+            console.log('SELECT error: ' + error.message);
+        });
+    }, function (error) {
+        console.log('transaction error: ' + error.message);
+    }, function () {
+        console.log('transaction ok');
+    });
+}
+
+function showOwnedWordPacks () {
+  for (var i = 0; i < ownedWordPacks.length; i++) {
+    $$("#word-packs").html(
+      "<div class='row category-icons' id='" +
+      ownedWordPacks[i] +
+      "'><img src='img/" +
+      rep-folder +
+      ".png' class='prompt-buttons'><p class='prompt-label'>" +
+      ownedWordPacks[i] +
+      "<br>WORD PACK</p><button type='button' class='btn btn-success start-challange' name='buy'>START CHALLANGE</button></div>"
+    )
+  }
+}
+
 // function newWordPack (newTable) {
 //   db.executeSql("DROP TABLE IF EXISTS " + newTable);
 //   db.executeSql("CREATE TABLE " + newTable " (data)");
@@ -190,22 +253,23 @@ $$(".word-pack-categories").on("click", function() {
 // click on specific category pack
 $$(".category-icons").on("click", function() {
   var imageUpdate = $$(this).attr("id");
+  getKeyword($$(this).attr("id"));
   // if($$(this).attr("id") == "all-folder") {
   //   getKeyword();
   //   localStorage.setItem("current-category", "all");
   // }
-  if($$(this).attr("id") == "non-rep-folder") {
-    getKeyword("non_Representational");
-    localStorage.setItem("current-category", "non_representational");
-  }
-  if($$(this).attr("id") == "imaginative-folder") {
-    getKeyword("imaginative");
-    localStorage.setItem("current-category", "imaginative");
-  }
-  if($$(this).attr("id") == "rep-folder") {
-    getKeyword("representational");
-    localStorage.setItem("current-category", "representational");
-  }
+  // if($$(this).attr("id") == "non-rep-folder") {
+  //   getKeyword("non_Representational");
+  //   localStorage.setItem("current-category", "non_representational");
+  // }
+  // if($$(this).attr("id") == "imaginative-folder") {
+  //   getKeyword("imaginative");
+  //   localStorage.setItem("current-category", "imaginative");
+  // }
+  // if($$(this).attr("id") == "rep-folder") {
+  //   getKeyword("representational");
+  //   localStorage.setItem("current-category", "representational");
+  // }
   localStorage.setItem("category-image", "img/" + imageUpdate + ".png");
   $$(".word-pack-categories").attr("src", "img/" + imageUpdate + ".png");
   // hide/show views
